@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(154, 166, 192);
+  background-color: rgb(15 23 42);
   color: whitesmoke;
-
-  background-image: url('../../src/assets/backgroundimage.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-
 }
