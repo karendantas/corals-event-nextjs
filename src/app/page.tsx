@@ -1,6 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 import backgroundimg from '@/assets/backgroundimage.jpg';
+import Link from "next/link";
 
 const backgroundStyle = {
   backgroundColor: 'rgb(154, 166, 192)',
@@ -21,15 +22,14 @@ export default function Home() {
           <p
             className="max-w-[600px] text-justify mt-4 text-md" 
           > Cadastre-se no evento para criar e publicar seus artigos! O tema da edição desse ano aborda o branqueamento de corais: problemáticas e possíveis soluções </p>
-        
-          <button 
-            className="bg-slate-900 border-[2px] border-coral rounded-md max-w-52 w-[100%] flex items-center justify-center gap-3 py-3 text-xl mt-12 hover:bg-coral hover:text-slate-900"
-            >
 
+        <Link href={'/register'} className="flex justify-center bg-slate-900 border-[2px] border-coral rounded-md max-w-52 w-[100%] py-3 text-xl mt-12 hover:bg-coral hover:text-slate-900">
+          <button className="flex items-center justify-center gap-3">
             Participe 
             <ArrowRight size={24} />
           
           </button>
+        </Link>
         </div>
       </div>
      

@@ -10,6 +10,7 @@ const config: Config = {
     extend : {
       colors:{
         coral: '#ff926a',
+        darkcoral: '#e88864'
       }
     }
   },
