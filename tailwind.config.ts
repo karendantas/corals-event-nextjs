@@ -10,10 +10,14 @@ const config: Config = {
     extend : {
       colors:{
         coral: '#ff926a',
-        darkcoral: '#e88864'
+        darkcoral: '#de7852'
+      },
+      gridTemplateColumns: {
+        '16': 'repeat(auto-fill, 300px)',
       }
-    }
   },
   plugins: [],
-};
+  }
+}
+
 export default config;
