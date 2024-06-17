@@ -30,6 +30,8 @@ export default function Home() {
           
           </button>
         </Link>
+
+        <Link href={'/home'} className="border-b font-light mt-3 text-sm"> Ou explore sem cadastro </Link>
         </div>
       </div>
      
