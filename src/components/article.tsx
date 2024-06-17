@@ -11,7 +11,7 @@ interface ArticleProps {
 
 export function Article ({author,content,title, image, created_at}:ArticleProps){
     return (
-        <div className="w-auto max-h-[250px] bg-slate-800 flex flex-col justify-start px-5 py-4 gap-3 rounded-md mb-4">
+        <div className="w-auto max-h-[250px] bg-slate-800 flex flex-col justify-start px-5 py-4 gap-3 rounded-md mb-4 border border-transparent hover:border-coral">
          
             <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold"> {title}</h3>

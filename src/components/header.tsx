@@ -3,7 +3,7 @@ import { Plus, SignIn } from "@phosphor-icons/react";
 
 export function Header (){
     return (
-        <header className="w-full flex items-center justify-between">
+        <header className="w-full flex flex-col items-center justify-between sm:flex-row ">
             <div>
                 <span className="text-sm font-light">1 evento técnológico da fenda do bikini</span>
                 <h2 className="text-2xl font-bold text-coral" >Branqueamento de corais</h2>
