@@ -18,9 +18,12 @@ const author1: UserType = {
 const article: ArticleType = {
     id: '1',
     author: author1,
-    content:'lorem imsusjehfsj sjhdfkjshfk sjfhbsjkfhjfjkshdfjkhsdkfhkjsdhfjk skjh shdfkhf sjdfh jkshjkfhsjkhfs fjkshdfjkhsdkfhkjsdhfjk skjh shdfkj',
+    content:"O branqueamento de corais é um fenômeno alarmante que tem afetado recifes em todo o mundo, representando uma séria ameaça aos ecossistemas marinhos. Corais saudáveis possuem uma simbiose vital com algas unicelulares chamadas zooxantelas, que vivem dentro de seus tecidos e fornecem nutrientes essenciais através da fotossíntese." +
+            "No entanto, quando os corais são expostos a condições estressantes, como temperaturas elevadas da água, poluição ou mudanças drásticas de salinidade, eles podem expulsar essas zooxantelas. Isso resulta na perda da coloração característica dos corais, que assumem uma tonalidade branca ou pálida — daí o termo 'branqueamento' ." +
+            "Esse processo enfraquece os corais e os torna mais vulneráveis a doenças e à fome, pois dependem das zooxantelas para obter uma parte significativa de sua nutrição. Sem a restauração da condição ideal do ambiente, muitos corais acabam morrendo. Além disso, o branqueamento tem impactos devastadores em ecossistemas inteiros que dependem dos recifes de coral, afetando a biodiversidade marinha e a pesca local." +
+            "As causas do branqueamento de corais estão diretamente ligadas às mudanças climáticas globais, que aumentam a frequência e a intensidade dos eventos de aquecimento dos oceanos. Medidas de mitigação, como reduzir as emissões de gases de efeito estufa e criar áreas marinhas protegidas, são essenciais para combater esse problema crescente e proteger esses preciosos ecossistemas submarinos para as gerações futuras.",
     created_at:'21/22/121',
-    title: 'Marrews',
+    title: 'Perigos do branqueamento de corais',
 }
 export default function HomePage (){
     const [articles, setArticles] = useState<ArticleType[]>([])
@@ -42,7 +45,7 @@ export default function HomePage (){
                 <hr className='w-full' />
             </div>
 
-           <section className='w-full grid grid-cols-16 items-center justify-center gap-4'>
+           <section className='w-full items-center justify-center gap-4'>
                 {articles.map((a) => {
                     return (
                         <Article 
