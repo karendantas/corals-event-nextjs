@@ -5,8 +5,9 @@ import { UserType } from '@/@types/user-type';
 import { Article } from '@/components/article';
 import { Header } from '@/components/header';
 import { NewArticleForm } from '@/components/new-article';
+import { ArticlesContext } from '@/contexts/articlesContext';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 
 const author1: UserType = {
@@ -28,21 +29,22 @@ const article: ArticleType = {
     title: 'Perigos do branqueamento de corais',
 }
 export default function HomePage (){
-    const [articles, setArticles] = useState<ArticleType[]>([])
     const [isNewArticleButtonOpen, setNewArticleButtonOpen] = useState(false)
+    const {articles, addNewArticle} = useContext(ArticlesContext)
 
     useEffect(()=>{
       
-        for (let index = 0; index < 5; index++) {
-           setArticles((state) => [...state, article])
-            
+        for (let index = 0; index < 2; index++) {
+           addNewArticle(article)      
         }
 
     },[])
 
+
     function handleCreateNewArticle(){
         setNewArticleButtonOpen(true)
     }
+    
     return (
         <div className='relative'>
             {
@@ -65,12 +67,10 @@ export default function HomePage (){
             <section className='w-full items-center justify-center gap-4'>
                     {articles.map((a) => {
                         return (
-                
+                            
                             <Article 
                                 author={a.author}
-                                content={a.content}
-                                created_at={a.created_at}
-                                title={a.title}
+                                data={a}                   
                 
                             />
                     

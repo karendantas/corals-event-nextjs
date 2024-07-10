@@ -7,6 +7,10 @@ body {
   color: whitesmoke;
 }
 
+textarea{
+  resize: none;
+}
+
 ::placeholder {
   font-weight: 400;
 }

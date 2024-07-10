@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ArticleContextProvider } from "@/contexts/articlesContext";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -15,9 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
+      <ArticleContextProvider>
       <body className={inter.className}>
         {children}
       </body>
+    </ArticleContextProvider>
     </html>
   );
 }
