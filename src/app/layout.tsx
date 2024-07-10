@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { url } from "inspector";
 
 const inter = Inter({ subsets: ["latin"] });
-const backgroundimg = '../../src/assets/backgroundimage.jpg'
 export const metadata: Metadata = {
   title: "Evento de branqueamento de corais",
   description: "",

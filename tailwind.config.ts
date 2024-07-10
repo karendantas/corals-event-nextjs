@@ -10,10 +10,14 @@ const config: Config = {
     extend : {
       colors:{
         coral: '#ff926a',
-        darkcoral: '#de7852'
+        darkcoral: '#de7852',
+        bgcolor: 'rgb(154, 166, 192)'
       },
       gridTemplateColumns: {
         '16': 'repeat(auto-fill, 300px)',
+      },
+      backgroundImage: {
+        'pattern': "url('/backgroundimage.jpg')"
       }
   },
   plugins: [],

@@ -1,20 +1,10 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-
-import backgroundimg from '@/assets/backgroundimage.jpg';
 import Link from "next/link";
 
-const backgroundStyle = {
-  backgroundColor: 'rgb(154, 166, 192)',
-  backgroundImage: `url(${backgroundimg.src})`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundBlendMode: 'multiply',
-
-}
 
 export default function Home() {
   return (
-    <main className="w-full h-screen" style={backgroundStyle}>
+    <main className="w-full h-screen bg-pattern bg-no-repeat bg-cover bg-bgcolor bg-blend-multiply">
       <div className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6">
         <div className="flex flex-1 flex-col items-start justify-center gap-2">
           <strong>1° edição do evento técnológico da fenda do Bikini</strong>
