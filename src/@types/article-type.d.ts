@@ -2,7 +2,7 @@ import { UserType } from "./user-type";
 
 export interface ArticleType {
     id: string,
-    author: UserType,
+    author_id: string,
     title: string,
     content: string,
     image?: string,
