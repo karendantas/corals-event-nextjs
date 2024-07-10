@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Plus, SignIn } from "@phosphor-icons/react";
 
-export function Header (){
+type Props = {
+    onClick : () => void
+}
+export function Header ({onClick}: Props){
     return (
         <header className="w-full flex flex-col items-center justify-between sm:flex-row ">
             <div>
@@ -11,13 +14,13 @@ export function Header (){
             <nav >
                 <ul className="flex items-center gap-3 ">
                     <li>    
-                        <Link 
-                            href={'/newarticle'}
-                            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
-                        >
+                        <button  
+                            onClick = {onClick}
+                            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"> 
                             Publicar artigo
                             <Plus size={20} weight="bold" />
-                        </Link> 
+                        </button>
+                      
 
                     </li>
 

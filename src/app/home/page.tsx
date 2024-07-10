@@ -4,6 +4,8 @@ import { ArticleType } from '@/@types/article-type';
 import { UserType } from '@/@types/user-type';
 import { Article } from '@/components/article';
 import { Header } from '@/components/header';
+import { NewArticleForm } from '@/components/new-article';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 
@@ -27,6 +29,7 @@ const article: ArticleType = {
 }
 export default function HomePage (){
     const [articles, setArticles] = useState<ArticleType[]>([])
+    const [isNewArticleButtonOpen, setNewArticleButtonOpen] = useState(false)
 
     useEffect(()=>{
       
@@ -36,30 +39,47 @@ export default function HomePage (){
         }
 
     },[])
+
+    function handleCreateNewArticle(){
+        setNewArticleButtonOpen(true)
+    }
     return (
-        <main className="max-w-screen-lg h-screen mx-auto flex flex-col gap-14 items-start mt-20 md: px-6 " >
-       
-            <Header/>
-            <div className='w-full flex items-center gap-3'>
-                <h3> Artigos </h3>
-                <hr className='w-full' />
-            </div>
+        <div className='relative'>
+            {
+                isNewArticleButtonOpen && (
+                    <div className='h-screen w-full flex items-center justify-center absolute z-99'>
+                        <NewArticleForm />
+                    </div>
+                )
+            }
 
-           <section className='w-full items-center justify-center gap-4'>
-                {articles.map((a) => {
-                    return (
-                        <Article 
-                            author={a.author}
-                            content={a.content}
-                            created_at={a.created_at}
-                            title={a.title}
+            <main className={`max-w-screen-lg h-screen mx-auto flex flex-col gap-14 items-start mt-20 md: px-6 ${isNewArticleButtonOpen === true ? 'opacity-20' : ''}`} >
         
-                        />
-                    )
-                })}
-              
+                <Header onClick={handleCreateNewArticle}/>
+                <div className='w-full flex items-center gap-3'>
+                    <h3> Artigos </h3>
+                    <hr className='w-full' />
+                </div>
 
-           </section>
-        </main>
+
+            <section className='w-full items-center justify-center gap-4'>
+                    {articles.map((a) => {
+                        return (
+                
+                            <Article 
+                                author={a.author}
+                                content={a.content}
+                                created_at={a.created_at}
+                                title={a.title}
+                
+                            />
+                    
+                        )
+                    })}
+                
+
+            </section>
+            </main>
+        </div>
     )
 }

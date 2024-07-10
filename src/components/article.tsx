@@ -28,7 +28,7 @@ export function Article ({author,content,title, image, created_at}:ArticleProps)
                 </div>
             </p>
 
-            <Link className="bg-coral text-slate-900 font-bold w-[30%] p-2 rounded-sm hover:bg-darkcoral justify-center flex self-end" href='/'> Ver artigo </Link>
+            <Link className="bg-coral text-slate-900 font-bold w-[30%] p-2 rounded-sm hover:bg-darkcoral justify-center flex self-end" href='/home/article/2'> Ver artigo </Link>
         </div>
     )
 }
