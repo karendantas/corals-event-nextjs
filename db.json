@@ -20,8 +20,15 @@
       "id": "1",
       "name": "admin",
       "login": "admin",
-      "role": "admin"
+      "role": "admin",
+      "password": "admin1"
+    },
+    {
+      "name": "Karen",
+      "login": "karenzinha123",
+      "password": "123456",
+      "id": "1f58d4d4-99a1-49ef-b2a6-84348d8c0c80",
+      "role": "client"
     }
-
   ]
 }

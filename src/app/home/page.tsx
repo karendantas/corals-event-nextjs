@@ -5,7 +5,6 @@ import { Article } from '@/components/article';
 import { Header } from '@/components/header';
 import { NewArticleForm } from '@/components/new-article';
 import { ArticlesContext } from '@/contexts/articlesContext';
-import { api } from '@/lib/api';
 
 
 
