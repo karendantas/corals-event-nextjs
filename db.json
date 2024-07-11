@@ -18,9 +18,10 @@
   "users": [
     {
       "id": "1",
-      "name": "Karen",
-      "login": "karezinha",
-      "email": "karen@gmail.com"
+      "name": "admin",
+      "login": "admin",
+      "role": "admin"
     }
+
   ]
 }

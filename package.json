@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.6.0",
+    "@hookform/resolvers": "^3.9.0",
     "@phosphor-icons/react": "^2.1.5-alpha.3",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
@@ -18,7 +18,8 @@
     "phosphor-react": "^1.4.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.51.5",
+    "react-hook-form": "^7.52.1",
+    "uuidv4": "^6.2.13",
     "zod": "^3.23.8"
   },
   "devDependencies": {
