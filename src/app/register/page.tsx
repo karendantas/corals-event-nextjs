@@ -1,15 +1,13 @@
 "use client"
 
-import { UserContext } from "@/contexts/usersContext";
+import { RegisterUser } from "@/api/conection";
+import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { redirect } from "next/dist/server/api-utils";
+
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
-
 import { useForm } from "react-hook-form";
-import { uuid } from "uuidv4";
 import * as z from 'zod'
 
 
@@ -22,10 +20,8 @@ const UserSchema = z.object({
 type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Register (){
-
-    const { addUser} = useContext(UserContext)
-
-    const navigate = useRouter()
+    const {users} = useContext(userContext)
+    
     const { register, 
             handleSubmit,
             reset,
@@ -36,14 +32,9 @@ export default function Register (){
 
 
     function onSubmitUser (data: UserSchemaType){
-        const unique_id = uuid()
-        const user = {
-            ...data, id: unique_id, role: "client"
-        }
+        
+        RegisterUser(data.name, data.login, data.password, users)
 
-        addUser(user)
-
-       navigate.push('/login')
     }
 
     return (

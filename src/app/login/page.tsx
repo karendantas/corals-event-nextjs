@@ -1,10 +1,7 @@
 "use client"
 
-import { UserContext } from "@/contexts/usersContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import * as z from 'zod'
@@ -19,8 +16,6 @@ type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Login (){
 
-    const {users, getAllUsers, AuthenticateUser} = useContext(UserContext)
-    const navigate = useRouter()
 
     const {
         register,
@@ -31,25 +26,8 @@ export default function Login (){
     })
 
     function onSubmitLoginForm (data: UserSchemaType ){
-        getAllUsers()
+  
 
-        const userExistis = users.map((user) => {
-            if (user.login === data.login && user.name === user.name) return user
-        })
-
-        if (userExistis){
-            const currentUser = userExistis.find((user) => user)
-            if (currentUser?.role === "admin") {
-                AuthenticateUser(currentUser)
-                navigate.push('/admin/dashboard')
-            }else{
-                AuthenticateUser(currentUser!)
-                navigate.push('/home')
-            }
-        }
-
-
-      
     }
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >
