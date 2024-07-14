@@ -1,7 +1,10 @@
 "use client"
 
+import { LoginUser } from "@/api/conection";
+import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import * as z from 'zod'
@@ -16,7 +19,7 @@ type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Login (){
 
-
+    const {users} = useContext(userContext)
     const {
         register,
         handleSubmit,
@@ -27,7 +30,8 @@ export default function Login (){
 
     function onSubmitLoginForm (data: UserSchemaType ){
   
-
+        LoginUser(data.login, data.password, users)
+        console.log('eiii')
     }
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >

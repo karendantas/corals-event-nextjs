@@ -29,6 +29,27 @@
       "password": "123456",
       "id": "1f58d4d4-99a1-49ef-b2a6-84348d8c0c80",
       "role": "client"
+    },
+    {
+      "name": "teste",
+      "login": "teste1",
+      "password": "123456",
+      "role": "client",
+      "id": "aTVbg0R"
+    },
+    {
+      "name": "teste2",
+      "login": "teste2",
+      "password": "12345567",
+      "role": "client",
+      "id": "Zr3wCT9"
+    },
+    {
+      "name": "teste234534564",
+      "login": "teste243545645",
+      "password": "12345656677",
+      "role": "client",
+      "id": "8hv8K9N"
     }
   ]
 }

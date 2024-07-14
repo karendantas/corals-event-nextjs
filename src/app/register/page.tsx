@@ -5,9 +5,11 @@ import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import * as z from 'zod'
 
 
@@ -21,6 +23,8 @@ type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Register (){
     const {users} = useContext(userContext)
+
+    const navigate = useRouter()
     
     const { register, 
             handleSubmit,
@@ -31,9 +35,13 @@ export default function Register (){
     })
 
 
-    function onSubmitUser (data: UserSchemaType){
+    async function onSubmitUser (data: UserSchemaType){
         
-        RegisterUser(data.name, data.login, data.password, users)
+        if ( await RegisterUser(data.name, data.login, data.password, users) ){
+            navigate.push('/login')
+        }else{
+            toast.error('Um usuário com esse login já foi cadastrado!')
+        }
 
     }
 

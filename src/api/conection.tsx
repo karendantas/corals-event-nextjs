@@ -5,9 +5,11 @@ import { setCookie } from "cookies-next"
 
 
 
+
 //criar novo usuário
 export async function RegisterUser(name: string, login: string, password: string, users: UserType[]){
 
+  
     const data = {
         name,
         login, 
@@ -15,16 +17,29 @@ export async function RegisterUser(name: string, login: string, password: string
         role: "client"
     }
 
-    const loginAlreadyExists = users.map((user) => user.login === login)
+    const loginAlreadyExists = users.find((user) => user.login === login)
     if (loginAlreadyExists){
-        return
+        console.log('existe')
+        return false
     }
 
     try {
         await api.post('/users', data)
-        setCookie('loggedAs', data.role)
+        return true
     }catch (err){
         console.log(err)
     }
 
+}
+
+export function LoginUser(login: string, password: string, users: UserType[]){
+    
+    const existingUser = users.find((user) => user.login === login && user.password === password)
+    if (existingUser){
+        setCookie('loggedAs', existingUser.role)
+        localStorage.setItem('user', existingUser.id)
+        console.log("entrou")
+    }else{
+        return 
+    }
 }
