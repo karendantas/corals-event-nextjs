@@ -44,7 +44,6 @@ export default function HomePage (){
                         return (
                             
                             <Article 
-                                author_id={a.author_id}
                                 data={a}                   
                 
                             />

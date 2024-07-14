@@ -37,9 +37,13 @@ export function LoginUser(login: string, password: string, users: UserType[]){
     const existingUser = users.find((user) => user.login === login && user.password === password)
     if (existingUser){
         setCookie('loggedAs', existingUser.role)
-        localStorage.setItem('user', existingUser.id)
+
+        const data = [existingUser.id, existingUser.name ]
+        localStorage.setItem('user', JSON.stringify(data))
+
         console.log("entrou")
+        return true
     }else{
-        return 
+        return false
     }
 }

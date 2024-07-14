@@ -4,8 +4,10 @@ import { LoginUser } from "@/api/conection";
 import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 import * as z from 'zod'
 
@@ -18,7 +20,7 @@ const UserSchema = z.object({
 type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Login (){
-
+    const navigate = useRouter()
     const {users} = useContext(userContext)
     const {
         register,
@@ -28,10 +30,14 @@ export default function Login (){
         resolver: zodResolver(UserSchema)
     })
 
-    function onSubmitLoginForm (data: UserSchemaType ){
+    async function onSubmitLoginForm (data: UserSchemaType ){
   
-        LoginUser(data.login, data.password, users)
-        console.log('eiii')
+        if ( await LoginUser(data.login, data.password, users) ){
+            navigate.push('/home')
+        }else{
+            toast.error('Usuário inexistente')
+        }
+        
     }
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >

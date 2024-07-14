@@ -4,18 +4,20 @@ import { ArticleType } from "@/@types/article-type";
 import { ArticlesContext } from "@/contexts/articlesContext";
 
 
+
 export function NewArticleForm(){
     const {addNewArticle} = useContext(ArticlesContext)
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
-
+    const getAuthor = JSON.stringify(localStorage.getItem('user')) 
+    
     function handleSubmitForm (event: FormEvent){
 
         const article : ArticleType ={
             id: '3',
-            author_id: "2",
+            author_id: getAuthor[0],
             content,
             created_at: '01/02/2023',
             title,
@@ -25,7 +27,6 @@ export function NewArticleForm(){
        
     }
     
-
     return (
        
             <div className=" max-w-2xl w-full bg-slate-900 p-12 rounded-md z-50 border-coral border">
