@@ -1,21 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 
 
-export default function middleware(req: NextRequest){
+export function middleware(req: NextRequest){
+
     const loggedAs = req.cookies.get('loggedAs')
-    console.log(loggedAs)
-    const href = req.nextUrl.pathname
+    const path = req.nextUrl.pathname
     
+    console.log(loggedAs)
 
-    if (loggedAs){
-        if (loggedAs.value == "client"){
-            return NextResponse.redirect('http://localhost:3000/home')
+    const isPrivatePath = path == '/admin/dashboard'
+    const isPublic = path == '/login' || path == '/register'
+
+    if (loggedAs){  
+        
+        //tornando rota do dashboard exlusiva para admins
+        if (isPrivatePath && loggedAs.value != "admin"){
+            return NextResponse.redirect(new URL('/home', req.nextUrl))
         }
 
-        if (loggedAs.value == "admin"){
-            return NextResponse.redirect('http://localhost:3000/dashboard')
-        }
+
+
     }
+
+    return NextResponse.next()
 }
 
-export const config = {matcher : ['/']}
+export const config = {
+    matcher : [
+        '/',
+        '/login',
+        '/register',
+        '/home',
+        '/admin/dashboard'
+    ]}
