@@ -26,7 +26,7 @@ export function Article ({ data}:ArticleProps){
 
             <Link
                 href={`/home/article/${data.id}`} 
-                className="bg-coral text-slate-900 font-bold w-[30%] p-2 rounded-sm hover:bg-darkcoral justify-center flex self-end"> Ver artigo </Link>
+                className="bg-coral text-slate-900 text-md font-bold w-[30%] p-2 rounded-sm hover:bg-darkcoral justify-center flex self-end"> Ver artigo </Link>
         </div>
     )
 }

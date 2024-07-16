@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Plus, SignOut } from "@phosphor-icons/react";
+import { ButtonContainer } from "./button";
 
 type Props = {
     onClick : () => void
@@ -12,18 +13,14 @@ export function Header ({onClick}: Props){
                 <h2 className="text-2xl font-bold text-coral" >Branqueamento de corais</h2>
             </div>
             <nav >
-                <ul className="flex items-center gap-3 ">
-                    <li>    
-                        <button  
-                            onClick = {onClick}
-                            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"> 
-                            Publicar artigo
-                            <Plus size={20} weight="bold" />
-                        </button>
-                      
-
+                <ul className="flex items-center gap-3 ">                 
+                    <li>
+                       <ButtonContainer onClick={onClick}>
+                            <ButtonContainer.Body> Publicar artigo  </ButtonContainer.Body>
+                            <ButtonContainer.Body> <Plus size={20} weight="bold" /> </ButtonContainer.Body>
+                       </ButtonContainer>
+                     
                     </li>
-
                     <li>    
                         <Link 
                             href={'/logout'}

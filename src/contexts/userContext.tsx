@@ -1,30 +1,29 @@
 "use client"
 
-import { createContext, useEffect, useState } from "react"
-import { UserType } from "@/@types/user-type"
 import { api } from "@/lib/api"
+
+import { UserType } from "@/@types/user-type"
+import { createContext, useEffect, useState } from "react"
 
 
 
 interface userContextType {
-    users: UserType[]
+    users: UserType[],
+    getAllUsers: () => Promise<void>
 }
 export const userContext = createContext({} as userContextType)
 export function UserContextProvider ({children}: {children: React.ReactNode}){
     const [ users, setUsers] = useState<UserType[]>([])
 
-    async function fetchUsers (){
+    async function getAllUsers (){
         const res = await api.get('/users')   
         setUsers(res.data)
     }
 
-    useEffect(() => {
-        fetchUsers()
-    }, [])
-
     return (
         <userContext.Provider value={{
-            users
+            users,
+            getAllUsers
         }}>
             {children}
         </userContext.Provider>

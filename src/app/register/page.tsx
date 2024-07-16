@@ -1,6 +1,7 @@
 "use client"
 
 import { RegisterUser } from "@/api/conection";
+import { ButtonContainer } from "@/components/button";
 import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -80,7 +81,7 @@ export default function Register (){
                     <button type = "submit" className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 font-bold w-[90%] hover:bg-darkcoral">
                         Confirmar
                     </button>
-
+                    
                     <Link 
                         href={'/login'}
                         className="text-base font-normal text-coral"

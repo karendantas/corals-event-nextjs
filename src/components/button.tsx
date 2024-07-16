@@ -1,16 +1,26 @@
-import { ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &{
-    title: string
+    children: ReactNode
     
 }
-export function Button ({title, ...rest}: ButtonProps){
+function ButtonContainer ({children, ...rest} : ButtonProps ){
     return (
         <button
             type = "submit"
             {...rest}
             className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral">
-            {title}
+            {children}
         </button>
     )
 }
+
+export function ButtonText({children} : {children: ReactNode}){
+    return (
+        <span> {children} </span>
+    )
+}
+
+ButtonContainer.Body = ButtonText
+
+export { ButtonContainer }

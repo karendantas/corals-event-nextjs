@@ -1,8 +1,8 @@
 "use client"
 import { useContext, useEffect, useState } from 'react';
 
-import { Article } from '@/components/article';
 import { Header } from '@/components/header';
+import { Article } from '@/components/article';
 import { NewArticleForm } from '@/components/new-article';
 import { ArticlesContext } from '@/contexts/articlesContext';
 

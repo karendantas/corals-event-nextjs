@@ -1,7 +1,8 @@
 "use client"
 
-import { ArticleType } from "@/@types/article-type"
 import { api } from "@/lib/api"
+
+import { ArticleType } from "@/@types/article-type"
 import { createContext, useState } from "react"
 
 
@@ -14,14 +15,11 @@ interface ArticleContextType {
 export const ArticlesContext = createContext({} as ArticleContextType )
 
 export function ArticleContextProvider({children}: {children: React.ReactNode}){
-
     const [articles, setArticles] = useState<ArticleType[]>([])
 
     async function addNewArticle(article: ArticleType){
         try {
-
-            await api.post('/articles', article)
-            
+            await api.post('/articles', article)  
         }catch (err){
             console.log(err)
         }
@@ -29,7 +27,6 @@ export function ArticleContextProvider({children}: {children: React.ReactNode}){
 
     async function getAllArticles (){
         try {
-
             const articlesData = await api.get('/articles')
             setArticles(articlesData.data)
         }catch (err) {

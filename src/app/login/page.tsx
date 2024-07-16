@@ -64,6 +64,7 @@ export default function Login (){
                 <button className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 w-[90%] hover:bg-darkcoral font-bold">
                     Confirmar
                 </button>
+                
 
                 <Link 
                     href={'/register'}

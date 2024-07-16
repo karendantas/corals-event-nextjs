@@ -1,6 +1,9 @@
-import { FormEvent, FormHTMLAttributes, useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+
 import { ArticleType } from "@/@types/article-type";
+
 import { ArticlesContext } from "@/contexts/articlesContext";
+import { ButtonContainer } from "./button";
 
 
 
@@ -46,7 +49,9 @@ export function NewArticleForm(){
                         onChange ={(e) =>setContent(e.target.value)} 
                         className="bg-slate-800 p-3 w-full text-base outline-none rounded-md placeholder:text-slate-100" />
 
-                    <button onClick={handleSubmitForm} type="submit" > enviar </button>
+                    <ButtonContainer onClick={handleSubmitForm} type="submit">
+                        <ButtonContainer.Body> Enviar </ButtonContainer.Body>
+                    </ButtonContainer>
                 </form>
             </div>
         

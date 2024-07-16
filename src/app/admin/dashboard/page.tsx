@@ -5,10 +5,11 @@ import { userContext } from "@/contexts/userContext"
 import { useContext, useEffect } from "react"
 
 export default function Dashboard(){
-    const {users} = useContext(userContext)
+    const {users, getAllUsers} = useContext(userContext)
     const {articles, getAllArticles} = useContext(ArticlesContext)
     
     useEffect(() => {
+        getAllUsers()
         getAllArticles()
     }, [])
     return (
