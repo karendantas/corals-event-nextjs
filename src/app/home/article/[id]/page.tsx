@@ -33,20 +33,18 @@ export default function Article ({ params }: {params: {id: string} }) {
 
                 <div className="flex items-center justify-between mt-5 text-slate-400">
                     <span>
-                        Karen
+                        {currentArticle.author_name}
                     </span>
 
                     <span>
-                        21/21/2003
+                        {currentArticle.created_at}
                     </span>
                 </div>
 
                 <div className="mt-12">
                     <p className="text-justify"> 
-                        "O branqueamento de corais é um fenômeno alarmante que tem afetado recifes em todo o mundo, representando uma séria ameaça aos ecossistemas marinhos. Corais saudáveis possuem uma simbiose vital com algas unicelulares chamadas zooxantelas, que vivem dentro de seus tecidos e fornecem nutrientes essenciais através da fotossíntese." <tr></tr>
-                        "No entanto, quando os corais são expostos a condições estressantes, como temperaturas elevadas da água, poluição ou mudanças drásticas de salinidade, eles podem expulsar essas zooxantelas. <tr></tr> Isso resulta na perda da coloração característica dos corais, que assumem uma tonalidade branca ou pálida — daí o termo 'branqueamento' ." + <tr></tr>
-                        "Esse processo enfraquece os corais e os torna mais vulneráveis a doenças e à fome, pois dependem das zooxantelas para obter uma parte significativa de sua nutrição. <tr></tr> Sem a restauração da condição ideal do ambiente, muitos corais acabam morrendo. Além disso, o branqueamento tem impactos devastadores em ecossistemas inteiros que dependem dos recifes de coral, afetando a biodiversidade marinha e a pesca local." +<tr></tr>
-                        "As causas do branqueamento de corais estão diretamente ligadas às mudanças climáticas globais, que aumentam a frequência e a intensidade dos eventos de aquecimento dos oceanos. Medidas de mitigação, como reduzir as emissões de gases de efeito estufa e criar áreas marinhas protegidas, são essenciais para combater esse problema crescente e proteger esses preciosos ecossistemas submarinos para as gerações futuras.",</p>
+                        {currentArticle.content}
+                    </p>
                 </div>
             </div>
         </main>

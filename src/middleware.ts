@@ -6,8 +6,6 @@ export function middleware(req: NextRequest){
     const loggedAs = req.cookies.get('loggedAs')
     const path = req.nextUrl.pathname
 
-    console.log(loggedAs)
-
     const isPrivatePath = path == '/admin/dashboard'
     const isAuth = path == '/login' || path == '/register'
     const isHome = path == '/home'

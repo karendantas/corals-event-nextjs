@@ -1,5 +1,4 @@
 import { FormEvent, FormHTMLAttributes, useContext, useState } from "react";
-import { Button } from "./button";
 import { ArticleType } from "@/@types/article-type";
 import { ArticlesContext } from "@/contexts/articlesContext";
 
@@ -11,13 +10,13 @@ export function NewArticleForm(){
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
-    const getAuthor = JSON.stringify(localStorage.getItem('user')) 
-    
+    const getAuthor = JSON.parse(localStorage.getItem('user')!) 
+
     function handleSubmitForm (event: FormEvent){
 
         const article : ArticleType ={
-            id: '3',
-            author_id: getAuthor[0],
+            id: getAuthor[0],
+            author_name: getAuthor[1],
             content,
             created_at: '01/02/2023',
             title,

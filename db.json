@@ -2,17 +2,17 @@
   "articles": [
     {
       "id": "1",
-      "author": "1",
+      "author_name": "Bob esponja",
       "title": "Perigos do branqueamento de corais",
       "content": "O branqueamento de corais é um fenômeno alarmante que tem afetado recifes em todo o mundo, representando uma séria ameaça aos ecossistemas marinhos. Corais saudáveis possuem uma simbiose vital com algas unicelulares chamadas zooxantelas, que vivem dentro de seus tecidos e fornecem nutrientes essenciais através da fotossíntese.",
       "created_at": "03/02/2023"
     },
     {
-      "id": "3",
-      "author": "2",
-      "content": "teste",
+      "id": "AmQCAQ_",
+      "author_name": "Karen Dantas",
+      "content": "primeiro artigo",
       "created_at": "01/02/2023",
-      "title": "teste"
+      "title": "ola mundo"
     }
   ],
   "users": [
@@ -22,34 +22,7 @@
       "login": "admin",
       "role": "admin",
       "password": "admin1"
-    },
-    {
-      "name": "Karen",
-      "login": "karenzinha123",
-      "password": "123456",
-      "id": "1f58d4d4-99a1-49ef-b2a6-84348d8c0c80",
-      "role": "client"
-    },
-    {
-      "name": "teste",
-      "login": "teste1",
-      "password": "123456",
-      "role": "client",
-      "id": "aTVbg0R"
-    },
-    {
-      "name": "teste2",
-      "login": "teste2",
-      "password": "12345567",
-      "role": "client",
-      "id": "Zr3wCT9"
-    },
-    {
-      "name": "acheron",
-      "login": "archie",
-      "password": "123456",
-      "role": "client",
-      "id": "--bX0AJ"
     }
+    
   ]
 }

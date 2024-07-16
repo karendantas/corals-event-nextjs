@@ -16,10 +16,10 @@ export default function HomePage (){
         setNewArticleButtonOpen(true)
     }
 
-  
     useEffect(() => {
         getAllArticles()
     },[])
+
     return (
         <div className='relative'>
             {

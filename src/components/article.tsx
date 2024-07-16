@@ -15,7 +15,7 @@ export function Article ({ data}:ArticleProps){
                 <span className="text-[12px] font-light text-slate-300">{data.created_at}</span>
             </div>
 
-            <strong className="text-sm font-normal text-slate-300"> {data.author_id} </strong>
+            <strong className="text-sm font-normal text-slate-300"> {data.author_name} </strong>
 
             <p className="line-clamp-4 flex flex-1 text-justify overflow-hidden relative"> 
                 {data.content}
