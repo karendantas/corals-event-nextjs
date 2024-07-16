@@ -4,6 +4,6 @@ interface SpanProps {
 }
 export function Span ({message}: SpanProps){
     return (
-        <span className="text-xs font-light text-slate-300"> {message}</span>
+        <span className="text-xs font-light pl-3 pt-1 text-darkcoral"> {message} </span>
     )
 }

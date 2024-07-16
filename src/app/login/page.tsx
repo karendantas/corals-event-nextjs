@@ -1,19 +1,23 @@
 "use client"
 
+import Link from "next/link";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+
 import { LoginUser } from "@/api/conection";
 import { userContext } from "@/contexts/userContext";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
+
 import toast from "react-hot-toast";
 
 import * as z from 'zod'
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Span } from "@/components/span";
 
 const UserSchema = z.object({
-    login: z.string().min(1),
-    password: z.string().min(6, "O nome não pode estar vazio!"),
+    login: z.string().min(1, 'Preencha o campo!'),
+    password: z.string().min(6, "A senha deve ter no minímo 6 dígitos!"),
    
 })
 
@@ -46,25 +50,31 @@ export default function Login (){
       
             <form onSubmit={handleSubmit(onSubmitLoginForm)} className="flex flex-col flex-1 items-center text-3xl gap-5 font-bold  ">
                 <h3 className="text-coral text-4xl uppercase font-extrabold ">LOGIN</h3>
-     
-                <input 
-                    className="bg-slate-800  w-[90%] p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
-                    type="text" 
-                    placeholder="Login"
-                    {...register("login")}
-                    />
 
-                <input 
-                    className="bg-slate-800  w-[90%] p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
-                    type="password" 
-                    placeholder="password"
-                    {...register("password")}
-                    />
+                <div className="w-[90%] flex flex-col">
 
+                    <input 
+                        className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                        type="text" 
+                        placeholder="Login"
+                        {...register("login")}
+                        />
+                    <Span message={errors && errors.login?.message } />
+                </div>
+
+                <div className="w-[90%] flex flex-col">
+                    <input 
+                        className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                        type="password" 
+                        placeholder="password"
+                        {...register("password")}
+                        />
+                    <Span message={errors && errors.password?.message }/>
+                </div>
                 <button className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 w-[90%] hover:bg-darkcoral font-bold">
                     Confirmar
                 </button>
-                
+
 
                 <Link 
                     href={'/register'}

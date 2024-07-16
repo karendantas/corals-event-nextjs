@@ -2,6 +2,7 @@
 
 import { RegisterUser } from "@/api/conection";
 import { ButtonContainer } from "@/components/button";
+import { Span } from "@/components/span";
 import { userContext } from "@/contexts/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -15,8 +16,8 @@ import * as z from 'zod'
 
 
 const UserSchema = z.object({
-    name: z.string().min(1, "O nome não pode estar vazio!"),
-    login: z.string().min(1, "O login não pode estar vazio!"),
+    name: z.string().min(1, "Preencha o campo!"),
+    login: z.string().min(1, "Preencha o campo!"),
     password: z.string().min(6, "A senha deve ter no minímo 6 dígitos!")
 })
 
@@ -53,30 +54,36 @@ export default function Register (){
                 <form onSubmit={handleSubmit(onSubmitUser)} className="flex flex-col flex-1 items-center text-3xl gap-5 font-bold  ">
                     <h3 className="text-coral text-4xl uppercase font-extrabold ">Cadastro</h3>
 
+                    <div className="w-[90%] flex flex-col">
                         <input 
-                            className=" bg-slate-800  w-[90%] p-3 text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className=" bg-slate-800  w-full p-3 text-base outline-none rounded-md placeholder:text-slate-100" 
                             type="text" 
                             placeholder="Nome"
                             {...register("name")}
                             />
-                   
-                 
+                        <Span message={errors && errors.name?.message}/>
+                        
+                    </div>
+
+                   <div className="w-[90%] flex flex-col">
                         <input 
-                            className="bg-slate-800  w-[90%] p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
                             type="text" 
                             placeholder="Login"
                             {...register("login")}
                             />
-                 
-                
+                        <Span message={errors && errors.login?.message}/>
+                    </div>
+
+                    <div className="w-[90%] flex flex-col">
                         <input 
-                            className="bg-slate-800  w-[90%] p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
                             type="password" 
                             placeholder="password"
                             {...register("password")}
                             />
-
-                      
+                        <Span message={errors && errors.password?.message}/>
+                    </div>  
                         
                     <button type = "submit" className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 font-bold w-[90%] hover:bg-darkcoral">
                         Confirmar
