@@ -1,14 +1,14 @@
+import { ButtonHTMLAttributes } from "react"
 
-type ButtonProps = {
-    type: "submit" | "default",
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &{
     title: string
-    onClick?: () => void,
+    
 }
-export function Button ({title, onClick, type = "default"}: ButtonProps){
+export function Button ({title, ...rest}: ButtonProps){
     return (
         <button
             type = "submit"
-            onClick={onClick} 
+            {...rest}
             className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral">
             {title}
         </button>

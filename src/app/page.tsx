@@ -14,6 +14,7 @@ export default function Home() {
           > Cadastre-se no evento para criar e publicar seus artigos! O tema da edição desse ano aborda o branqueamento de corais: problemáticas e possíveis soluções </p>
 
         <Link href={'/register'} className="flex justify-center bg-slate-900 border-[2px] border-coral rounded-md max-w-52 w-[100%] py-3 text-xl mt-12 hover:bg-coral hover:text-slate-900">
+        
           <button className="flex items-center justify-center gap-3">
             Participe 
             <ArrowRight size={24} />
@@ -21,7 +22,6 @@ export default function Home() {
           </button>
         </Link>
 
-        <Link href={'/home'} className="border-b font-light mt-3 text-sm"> Ou explore sem cadastro </Link>
         </div>
       </div>
      

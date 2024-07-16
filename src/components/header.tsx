@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, SignIn } from "@phosphor-icons/react";
+import { Plus, SignOut } from "@phosphor-icons/react";
 
 type Props = {
     onClick : () => void
@@ -26,11 +26,11 @@ export function Header ({onClick}: Props){
 
                     <li>    
                         <Link 
-                            href={'/newarticle'}
+                            href={'/logout'}
                             className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
                         >
-                            Entrar
-                            <SignIn size={20} />
+                            Sair
+                            <SignOut size={20} />
                         </Link> 
 
                     </li>
