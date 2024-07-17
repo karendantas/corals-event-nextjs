@@ -9,7 +9,7 @@ function ButtonContainer ({children, ...rest} : ButtonProps ){
         <button
             type = "submit"
             {...rest}
-            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral">
+            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral disabled:opacity-15 disabled:cursor-not-allowed">
             {children}
         </button>
     )

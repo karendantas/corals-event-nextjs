@@ -22,7 +22,13 @@
       "login": "admin",
       "role": "admin",
       "password": "admin1"
+    },
+    {
+      "name": "kinha",
+      "login": "kinha123",
+      "password": "123456",
+      "role": "client",
+      "id": "A0oQcha"
     }
-    
   ]
 }

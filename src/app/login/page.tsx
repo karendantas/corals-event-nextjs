@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { LoginUser } from "@/api/conection";
@@ -26,17 +26,17 @@ type UserSchemaType = z.infer< typeof UserSchema>
 export default function Login (){
     
     const navigate = useRouter()
-    const {users} = useContext(userContext)
+    const {users, getAllUsers} = useContext(userContext)
     const {
         register,
         handleSubmit,
-        formState: {errors}
+        formState: {errors, isSubmitting}
     } = useForm<UserSchemaType>({
         resolver: zodResolver(UserSchema)
     })
 
     async function onSubmitLoginForm (data: UserSchemaType ){
-  
+   
         if ( await LoginUser(data.login, data.password, users) ){
             navigate.push('/home')
         }else{
@@ -44,6 +44,10 @@ export default function Login (){
         }
         
     }
+
+    useEffect(() => {
+        getAllUsers()
+    }, [])
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >
         <div className="w-[500px] h-[500px] rounded-md p-5 flex items-center border border-coral ">
@@ -71,7 +75,10 @@ export default function Login (){
                         />
                     <Span message={errors && errors.password?.message }/>
                 </div>
-                <button className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 w-[90%] hover:bg-darkcoral font-bold">
+                <button 
+                    type = "submit"
+                    disabled = {isSubmitting}
+                    className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 w-[90%] hover:bg-darkcoral font-bold disabled:opacity-15 disabled:cursor-not-allowed">
                     Confirmar
                 </button>
 

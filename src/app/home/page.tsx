@@ -15,6 +15,9 @@ export default function HomePage (){
     function handleCreateNewArticle(){
         setNewArticleButtonOpen(true)
     }
+    function handleCloseNewArticleForm(){
+        setNewArticleButtonOpen(false)
+    }
 
     useEffect(() => {
         getAllArticles()
@@ -25,7 +28,7 @@ export default function HomePage (){
             {
                 isNewArticleButtonOpen && (
                     <div className='h-screen w-full flex items-center justify-center absolute z-99'>
-                        <NewArticleForm />
+                        <NewArticleForm closeNewArticleForm={handleCloseNewArticleForm} />
                     </div>
                 )
             }
@@ -33,6 +36,7 @@ export default function HomePage (){
             <main className={`max-w-screen-lg h-screen mx-auto flex flex-col gap-14 items-start mt-20 md: px-6 ${isNewArticleButtonOpen === true ? 'opacity-20' : ''}`} >
         
                 <Header onClick={handleCreateNewArticle}/>
+
                 <div className='w-full flex items-center gap-3'>
                     <h3> Artigos </h3>
                     <hr className='w-full' />

@@ -4,10 +4,15 @@ import { ArticleType } from "@/@types/article-type";
 
 import { ArticlesContext } from "@/contexts/articlesContext";
 import { ButtonContainer } from "./button";
+import { uuid } from "uuidv4";
+import toast from "react-hot-toast";
+import { X } from "@phosphor-icons/react";
 
 
-
-export function NewArticleForm(){
+interface NewArticleFormProps  {
+    closeNewArticleForm: () => void
+}
+export function NewArticleForm({closeNewArticleForm}: NewArticleFormProps){
     const {addNewArticle} = useContext(ArticlesContext)
 
     const [title, setTitle] = useState('')
@@ -17,8 +22,13 @@ export function NewArticleForm(){
 
     function handleSubmitForm (event: FormEvent){
 
+        event.preventDefault()
+
+        if (!content.trim() || !title.trim()){
+            return toast.error('Preencha os campos!')
+        }
         const article : ArticleType ={
-            id: getAuthor[0],
+            id: uuid(),
             author_name: getAuthor[1],
             content,
             created_at: '01/02/2023',
@@ -29,10 +39,19 @@ export function NewArticleForm(){
        
     }
     
+    function handleCloseNewArticleForm(){
+        {closeNewArticleForm()}
+    }
     return (
        
             <div className=" max-w-2xl w-full bg-slate-900 p-12 rounded-md z-50 border-coral border">
-                <h2 className="text-slate-100 font-semibold">Criar novo artigo </h2>
+                
+                <div className="flex items-center justify-between pb-3">
+                    <h2 className="text-slate-100 font-semibold">Criar novo artigo </h2>
+                    <button onClick={handleCloseNewArticleForm}>
+                        <X size = {24}/>
+                    </button>
+                </div>
                 
                 <form className="w-full flex flex-col gap-3">
                     <input 
@@ -52,6 +71,7 @@ export function NewArticleForm(){
                     <ButtonContainer onClick={handleSubmitForm} type="submit">
                         <ButtonContainer.Body> Enviar </ButtonContainer.Body>
                     </ButtonContainer>
+
                 </form>
             </div>
         

@@ -1,19 +1,19 @@
 "use client"
 
-import { RegisterUser } from "@/api/conection";
-import { ButtonContainer } from "@/components/button";
-import { Span } from "@/components/span";
-import { userContext } from "@/contexts/userContext";
-import { zodResolver } from "@hookform/resolvers/zod";
-
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
-import { useForm } from "react-hook-form";
+import { RegisterUser } from "@/api/conection";
+import { userContext } from "@/contexts/userContext";
+
 import toast from "react-hot-toast";
-import * as z from 'zod'
 
+import * as z from 'zod'
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Span } from "@/components/span";
 
 const UserSchema = z.object({
     name: z.string().min(1, "Preencha o campo!"),
@@ -24,14 +24,13 @@ const UserSchema = z.object({
 type UserSchemaType = z.infer< typeof UserSchema>
 
 export default function Register (){
-    const {users} = useContext(userContext)
+    const {users, getAllUsers} = useContext(userContext)
 
     const navigate = useRouter()
     
     const { register, 
             handleSubmit,
-            reset,
-            formState: {errors}
+            formState: {errors, isSubmitting}
         } = useForm<UserSchemaType>({
         resolver: zodResolver(UserSchema)
     })
@@ -47,6 +46,9 @@ export default function Register (){
 
     }
 
+    useEffect(() => {
+        getAllUsers()
+    }, [])
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >
             <div className="w-[500px] h-[500px] rounded-md p-5 flex items-center border border-coral">
@@ -85,7 +87,11 @@ export default function Register (){
                         <Span message={errors && errors.password?.message}/>
                     </div>  
                         
-                    <button type = "submit" className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 font-bold w-[90%] hover:bg-darkcoral">
+                    <button 
+                        type = "submit" 
+                        disabled = {isSubmitting}
+                        className="bg-coral px-4 h-11 rounded-md text-base text-slate-900 font-bold w-[90%] hover:bg-darkcoral disabled:opacity-15 disabled:cursor-not-allowed"
+                        >
                         Confirmar
                     </button>
                     
