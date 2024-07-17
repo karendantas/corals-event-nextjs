@@ -48,7 +48,7 @@ export function NewArticleForm({closeNewArticleForm}: NewArticleFormProps){
     }
     return (
        
-            <div className=" max-w-2xl w-full bg-slate-900 p-12 rounded-md z-50 border-coral border">
+            <div className=" max-w-2xl w-full bg-slate-900 p-2 md:p-10 rounded-md z-50 border-coral border">
                 
                 <div className="flex items-center justify-between pb-3">
                     <h2 className="text-slate-100 font-semibold">Criar novo artigo </h2>

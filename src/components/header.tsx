@@ -7,8 +7,8 @@ type Props = {
 }
 export function Header ({onClick}: Props){
     return (
-        <header className="w-full flex flex-col items-center justify-between sm:flex-row ">
-            <div>
+        <header className="w-full flex flex-col items-center justify-between md:flex-row">
+            <div className="flex flex-col items-center pb-3 md:items-start">
                 <span className="text-sm font-light">1 evento técnológico da fenda do bikini</span>
                 <h2 className="text-2xl font-bold text-coral" >Branqueamento de corais</h2>
             </div>
@@ -24,7 +24,7 @@ export function Header ({onClick}: Props){
                     <li>    
                         <Link 
                             href={'/logout'}
-                            className="bg-coral text-slate-800 font-bold px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
+                            className="bg-coral text-slate-800 font-bold text-sm md:text-md px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
                         >
                             Sair
                             <SignOut size={20} />

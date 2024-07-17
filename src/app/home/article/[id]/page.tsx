@@ -29,9 +29,9 @@ export default function Article ({ params }: {params: {id: string} }) {
                     <ArrowLeft size={24}/>  Voltar 
                 </Link>
 
-                <h2 className="text-4xl font-bold mt-2" > {currentArticle.title} </h2>
+                <h2 className="text-2xl md:text-4xl font-bold mt-2" > {currentArticle.title} </h2>
 
-                <div className="flex items-center justify-between mt-5 text-slate-400">
+                <div className="flex flex-col gap-2 md:flex-row items-start md:items-center justify-between mt-5 text-slate-400">
                     <span>
                         {currentArticle.author_name}
                     </span>
@@ -42,7 +42,7 @@ export default function Article ({ params }: {params: {id: string} }) {
                 </div>
 
                 <div className="mt-12">
-                    <p className="text-justify"> 
+                    <p className="text-justify text-md md:text-lg"> 
                         {currentArticle.content}
                     </p>
                 </div>
