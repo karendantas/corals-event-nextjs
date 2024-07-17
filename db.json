@@ -8,11 +8,18 @@
       "created_at": "03/02/2023"
     },
     {
-      "id": "AmQCAQ_",
-      "author_name": "Karen Dantas",
-      "content": "primeiro artigo",
+      "id": "b7101da2-d5b4-4033-bf6c-4cdcc5411451",
+      "author_name": "Sandy",
+      "content": "\"O branqueamento de corais é um problema ecológico grave relacionado principalmente com o aumento da temperatura da água dos oceanos. Esse problema pode ocorrer de forma transitória ou de forma fatal, matando o coral. No fenômeno de branqueamento, os corais tornam-se translúcidos, sendo possível verificar o esqueleto de carbonato de cálcio desses animais. Isso acontece em razão da expulsão das algas zooxantelas ou por causa da perda do pigmento dessas algas, que vivem em associação mutualística com o coral.\"\n",
       "created_at": "01/02/2023",
-      "title": "ola mundo"
+      "title": "Análises científicas "
+    },
+    {
+      "id": "f2bbd049-1e52-4f4c-8970-b299c29c0680",
+      "author_name": "Sr sirigueijo",
+      "content": "O presente artigo tem como principal objetivo analisar os perigos que o branqueamento de corais pode trazer a fenda do Bikini e em como isso está impactando diretamente nas vendas do Siri Cascudo.",
+      "created_at": "01/02/2023",
+      "title": "Impactos dos corais no Siri Cascudo"
     }
   ],
   "users": [
@@ -29,6 +36,20 @@
       "password": "123456",
       "role": "client",
       "id": "A0oQcha"
+    },
+    {
+      "name": "Sandy",
+      "login": "sandyesquilo",
+      "password": "123456",
+      "role": "client",
+      "id": "5o6Ju4L"
+    },
+    {
+      "name": "Sr sirigueijo",
+      "login": "siriCascudoOMelhor",
+      "password": "dinheiro",
+      "role": "client",
+      "id": "ECCxaRm"
     }
   ]
 }

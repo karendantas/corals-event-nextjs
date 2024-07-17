@@ -26,16 +26,20 @@ export function NewArticleForm({closeNewArticleForm}: NewArticleFormProps){
 
         if (!content.trim() || !title.trim()){
             return toast.error('Preencha os campos!')
-        }
-        const article : ArticleType ={
-            id: uuid(),
-            author_name: getAuthor[1],
-            content,
-            created_at: '01/02/2023',
-            title,
-        }
+        }else{
 
-        addNewArticle(article)
+            const article : ArticleType ={
+                id: uuid(),
+                author_name: getAuthor[1],
+                content,
+                created_at: '01/02/2023',
+                title,
+            }
+    
+            addNewArticle(article)
+            handleCloseNewArticleForm()
+            
+        }
        
     }
     
