@@ -24,7 +24,7 @@ export function Header ({onClick}: Props){
                     <li>    
                         <Link 
                             href={'/logout'}
-                            className="bg-coral text-slate-800 font-bold text-sm md:text-md px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
+                            className="bg-coral text-slate-800 font-bold text-sm md:text-base px-4 h-10 rounded-sm flex items-center gap-2 hover:bg-darkcoral"
                         >
                             Sair
                             <SignOut size={20} />

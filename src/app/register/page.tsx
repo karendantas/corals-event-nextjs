@@ -51,14 +51,14 @@ export default function Register (){
     }, [])
     return (
         <main className="max-w-screen-lg h-screen mx-auto flex items-center justify-center md: px-6" >
-            <div className="w-[500px] h-[500px] rounded-md p-5 flex items-center border border-coral">
+            <div className="w-[500px] h-[500px] rounded-md p-2 md:p-5 flex items-center border border-coral">
           
                 <form onSubmit={handleSubmit(onSubmitUser)} className="flex flex-col flex-1 items-center text-3xl gap-5 font-bold  ">
-                    <h3 className="text-coral text-4xl uppercase font-extrabold ">Cadastro</h3>
+                    <h3 className="text-coral text-2xl md:text-4xl uppercase font-extrabold ">Cadastro</h3>
 
                     <div className="w-[90%] flex flex-col">
                         <input 
-                            className=" bg-slate-800  w-full p-3 text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className=" bg-slate-800  w-full p-3 text-xs md:text-base outline-none rounded-md" 
                             type="text" 
                             placeholder="Nome"
                             {...register("name")}
@@ -69,7 +69,7 @@ export default function Register (){
 
                    <div className="w-[90%] flex flex-col">
                         <input 
-                            className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className="bg-slate-800  w-full p-3 text-xs md:text-base outline-none rounded-md placeholdert-slate-100" 
                             type="text" 
                             placeholder="Login"
                             {...register("login")}
@@ -79,7 +79,7 @@ export default function Register (){
 
                     <div className="w-[90%] flex flex-col">
                         <input 
-                            className="bg-slate-800  w-full p-3  text-base outline-none rounded-md placeholder:text-slate-100" 
+                            className="bg-slate-800  w-full p-3  text-sm md:text-base outline-none rounded-md " 
                             type="password" 
                             placeholder="password"
                             {...register("password")}
@@ -97,7 +97,7 @@ export default function Register (){
                     
                     <Link 
                         href={'/login'}
-                        className="text-base font-normal text-coral"
+                        className="text-xs md:text-base font-normal text-coral"
                     > Já tem cadastro? Faça login 
                     
                     </Link>
